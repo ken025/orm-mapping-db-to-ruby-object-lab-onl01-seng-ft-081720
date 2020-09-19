@@ -73,7 +73,7 @@ def self.first_X_students_in_grade_10(x)
        SELECT * FROM students WHERE grade = 10 LIMIT 1
     SQL
 
-    s = DB[:conn].execute(sql, x)
+    DB[:conn].execute(sql, x)
   end
   
   def self.all_students_in_grade_X(grade)
