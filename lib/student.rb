@@ -74,8 +74,10 @@ def self.first_X_students_in_grade_10(x)
        WHERE grade = 10
        LIMIT ?
     SQL
-
-    DB[:conn].execute(sql, x)
+   
+      DB[:conn].execute(sql).map do |row|
+        self.new_from_db(row)
+      end.first
   end
   
   def self.all_students_in_grade_X(grade)
